@@ -1,0 +1,190 @@
+<footer id="footer">
+	<div class="container text-center">
+		<nav>
+			<a routerLink="about">About</a>
+			<a routerLink="terms">Terms</a>
+			<a routerLink="privacy">Privacy</a>
+			<a routerLink="help">Help</a>
+			<a routerLink="smart-contract-creation">Smart Contract Creation</a>
+      <a routerLink="search-results">Search</a>
+		</nav>
+		<div class="social_icns">
+			<a href="#"><i class="fa fa-facebook-square"></i></a>
+			<a href="#"><i class="fa fa-twitter-square"></i></a>
+			<a href="#"><i class="fa fa-google-plus-square"></i></a>
+		</div>
+		<small>&copy;2017 Service Advisor</small>
+	</div>
+</footer>
+
+<!-- <div class="innerLinks">
+	<a routerLink='smart-contract-creation'>Smart Contract Creation</a>
+	<a routerLink='search'>Search Result</a>
+</div> -->
+
+ <!-- login -->
+<div class="modal fade" id="login"  tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true"  >
+  <div class="modal-dialog modal-smd" role="document">
+    <div class="modal-content">
+     <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="login_btns">
+        	<button class="btn btn-primary btn-block" style="background-color: #3b5998; border: 0;"><i class="fa fa-facebook-square"></i> Login with Facebook</button>
+        	<button class="btn btn-primary btn-block" style="background-color: #00aced;border: 0;"><i class="fa fa-twitter-square"></i> Login with Twitter</button>
+        	<button class="btn btn-primary btn-block" style="background-color: #dd4b39;border: 0;"><i class="fa fa-google-plus-square"></i> Login with Google</button>
+        </div>
+        <div class="or">or</div>
+        <form #loginForm="ngForm" (ngSubmit)="logIn(loginForm.value)">
+		  <div class="input-group form-group">
+		    <input type="text" class="form-control"  placeholder="Email Address" name="u_name" ngModel>
+		    <div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
+		  </div>
+		  <div class="input-group form-group">
+		    <input type="password" class="form-control"  placeholder="Password" name="pwd" ngModel>
+		    <div class="input-group-addon"><i class="fa fa-key"></i></div>
+		  </div>
+		  <div class="form-group row">
+		    <div class="col-sm-6">
+		     <div class="form-check">
+			      <span class="form-check-label">
+			        <input class="form-check-input" type="checkbox"> Remember me
+			      </span>
+			    </div>
+		    </div>
+		    <div class="col-xs-6 text-right">
+		    	<a>Forgot password?</a>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		  	<input type="submit" name="submit" class="btn btn-info btn-block" value="Login">
+		  </div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+	        <div class="col-sm-9 text-left">
+	        	<span>Don't have an account with Service Advisor?</span>
+	        </div>
+	        <div class="col-sm-3">
+	        	<button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close"  data-toggle="modal" data-target="#signup">Sign Up</button>
+	        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Signup -->
+<div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="signup" aria-hidden="true">
+  <div class="modal-dialog modal-smd" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign Up</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="login_btns">
+        	<button class="btn btn-primary btn-block" style="background-color: #3b5998; border: 0;"><i class="fa fa-facebook-square"></i> Login with Facebook</button>
+        	<button class="btn btn-primary btn-block" style="background-color: #00aced;border: 0;"><i class="fa fa-twitter-square"></i> Login with Twitter</button>
+        	<button class="btn btn-primary btn-block" style="background-color: #dd4b39;border: 0;"><i class="fa fa-google-plus-square"></i> Login with Google</button>
+        </div>
+        <br>
+        <form name="login">
+        	<div class="form-group">
+        		<div class="form-check">
+		      <span class="form-check-label">
+		        <input class="form-check-input" type="radio" name="typeOfcustomer" checked="true" value="1" [(ngModel)]="serviceType"> Consumer
+		      </span> &nbsp;&nbsp;&nbsp;
+		      <span class="form-check-label">
+		        <input class="form-check-input" type="radio" name="typeOfcustomer" value="2" [(ngModel)]="serviceType"> Service Provider
+		      </span>
+		    </div>
+        	</div>
+		  <div class="input-group form-group">
+		    <input type="text" class="form-control"  placeholder="Email Address">
+		    <div class="input-group-addon"><i class="fa fa-envelope-o"></i></div>
+		  </div>
+		  <div class="input-group form-group">
+		    <input type="text" class="form-control"  placeholder="First Name">
+		    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+		  </div>
+		  <div class="input-group form-group">
+		    <input type="text" class="form-control"  placeholder="Last Name">
+		    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+		  </div>
+		  <div class="input-group form-group">
+		    <input type="text" class="form-control"  placeholder="Password">
+		    <div class="input-group-addon"><i class="fa fa-key"></i></div>
+		  </div>
+		  <div class="input-group form-group" *ngIf="serviceType==2">
+		    <input type="text" class="form-control"  placeholder="Provider's Webpage">
+		    <div class="input-group-addon"><i class="fa fa-globe"></i></div>
+		  </div>
+      <div class="input-group form-group" *ngIf="serviceType==2" > 
+		    <input type="text" class="form-control"  placeholder="Provider's Facebook Page">
+		    <div class="input-group-addon"><i class="fa fa-facebook"></i></div>
+		  </div>
+		  <p><small>By Clicking Signup with, I agree Service Advisor's Terms and Conditions</small></p>
+		  <div class="form-group">
+		  	<input type="submit" name="submit" class="btn btn-info btn-block" value="Sign up">
+		  </div>
+		</form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+ <!-- create smart contract -->
+<div class="modal fade" id="addSmartContract" tabindex="-1" role="dialog" aria-labelledby="createContract" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Contract Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <strong>How many phases do you want to include? </strong><br>
+        <span>Number of phases: 3</span><br><br>
+        <form id="create_phase" class="form-inline">
+        	<div class="form-group" *ngFor=" let n of list; let i=index ">
+        		<span>{{i + 1}}</span>
+        		<input type="text" name="desc" class="form-control"  placeholder="Description">
+        		<input type="text" name="Sdat" class="form-control datepicker" data-provide="datepicker" placeholder="Start Date">
+        		  <input type="text" name="Sdat" class="form-control datepicker" data-provide="datepicker" placeholder="End Date">
+              <i class="fa fa-close"  *ngIf="i>2" (click)="remove(i)"></i>
+        	</div>
+        	<br>
+        	<a (click)="addnew()" style="cursor: pointer;"><strong>+ Add phase</strong></a>
+         
+        	<br><br>
+        	<div class="row">
+        		<div class="col-sm-6">
+        			<button type="button" class="btn btn-info" data-dismiss="modal" aria-label="Close">Cancel Add Contract Details</button>
+        		</div>
+        		<div class="col-sm-6">
+        			<button type="button" class="btn btn-primary pull-right">Submit Contract Details</button>
+        		</div>
+        	</div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- <script type="text/javascript">
+ (function($){
+    jQuery('.datepicker').datepicker();
+})(jQuery); 
+</script> -->

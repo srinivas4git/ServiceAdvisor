@@ -1,0 +1,171 @@
+<section id="dashboard">
+	<div class="container-fluid">
+		<h3 class="ttl3 text-uppercase">Providers dashboard</h3>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-9" style="padding-right: 0;">
+						<ul class="nav nav-tabs text-uppercase" role="tablist">
+						    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">current contracts</a></li>
+						    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">inbox</a></li>
+						    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">completed contracts</a></li>
+						  </ul>
+
+					</div>
+					<div class="col-sm-3" style="padding-left: 0;">
+						<div class="input-group mb-2 mb-sm-0" style="margin-top:10px;">
+					        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+					        <input type="text" class="form-control" type="text" 
+					        [(ngModel)]="searchText"  placeholder="Search...">
+					      </div>
+					</div>
+				</div>
+				<div class="tab-content">
+				    <div role="tabpanel" class="tab-pane active" id="home">
+				    	<table class="table table-bordered table-responsive">
+				    		<thead>
+				    			<tr class="bg-info">
+				    				<th (click)="sort('Pname')">Provider Name 
+				    					<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'Pname', 
+                        'fa-sort-asc': (column == 'Pname' && !isDesc), 
+                        'fa-sort-desc': (column == 'Pname' && isDesc) }"
+    aria-hidden="true"> </i></th>
+					    			<th (click)="sort('Sname')">Service Name
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'Sname', 
+                        'fa-sort-asc': (column == 'Sname' && !isDesc), 
+                        'fa-sort-desc': (column == 'Sname' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+					    			<th (click)="sort('StartDate')">Start Date
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'StartDate', 
+                        'fa-sort-asc': (column == 'StartDate' && !isDesc), 
+                        'fa-sort-desc': (column == 'StartDate' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+					    			<th (click)="sort('EndDate')">End Date
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'EndDate', 
+                        'fa-sort-asc': (column == 'EndDate' && !isDesc), 
+                        'fa-sort-desc': (column == 'EndDate' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+					    			<th (click)="sort('Voilation')">Voilation Name
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'Voilation', 
+                        'fa-sort-asc': (column == 'Voilation' && !isDesc), 
+                        'fa-sort-desc': (column == 'Voilation' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+					    			<th (click)="sort('status')">Status
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'status', 
+                        'fa-sort-asc': (column == 'status' && !isDesc), 
+                        'fa-sort-desc': (column == 'status' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+				    			</tr>
+				    		</thead>
+				    		<tbody>
+				    			<tr *ngFor=" let CC of currentContractors | filterTxt: searchText | TableSorting: { property: column, direction: direction} ">
+				    				<td>{{ CC.Pname }}</td>
+				    				<td>{{ CC.Sname }}</td>
+				    				<td>{{ CC.StartDate }}</td>
+				    				<td>{{ CC.EndDate }}</td>
+				    				<td>{{ CC.Voilation }}</td>
+				    				<td>{{ CC.status }}</td>
+				    			</tr>
+				    		</tbody>
+				    	</table>
+				    </div>
+				    <div role="tabpanel" class="tab-pane" id="profile">
+				    	<table class="table table-bordered table-responsive">
+				    		<thead>
+				    			<tr class="bg-info">
+				    				<th (click)="sort('Pname')">Provider Name
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'Pname', 
+                        'fa-sort-asc': (column == 'Pname' && !isDesc), 
+                        'fa-sort-desc': (column == 'Pname' && isDesc) }"
+    aria-hidden="true"> </i>
+				    				</th>
+					    			<th (click)="sort('Sname')">Service Name
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'Sname', 
+                        'fa-sort-asc': (column == 'Sname' && !isDesc), 
+                        'fa-sort-desc': (column == 'Sname' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+					    			<th (click)="sort('date')">Date and Time
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'date', 
+                        'fa-sort-asc': (column == 'date' && !isDesc), 
+                        'fa-sort-desc': (column == 'date' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+					    			<th (click)="sort('Status')">Status
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'Status', 
+                        'fa-sort-asc': (column == 'Status' && !isDesc), 
+                        'fa-sort-desc': (column == 'Status' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+					    			<th (click)="sort('action')">Action
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'action', 
+                        'fa-sort-asc': (column == 'action' && !isDesc), 
+                        'fa-sort-desc': (column == 'action' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+				    			</tr>
+				    		</thead>
+				    		<tbody>
+				    			<tr *ngFor=" let inbox of inboxData | filterTxt: searchText | TableSorting: { property: column, direction: direction} ">
+				    				<td>{{ inbox.Pname }}</td>
+				    				<td>{{ inbox.Sname }}</td>
+				    				<td>{{ inbox.date }}</td>
+				    				<td>{{ inbox.Status }}</td>
+				    				<td><a class="btn btn-primary">{{ inbox.action }}</a></td>
+				    			</tr>
+				    		</tbody>
+				    	</table>
+				    </div>
+				    <div role="tabpanel" class="tab-pane" id="messages">
+				    	<table class="table table-bordered table-responsive">
+				    		<thead>
+								<tr class="bg-info">
+				    				<th (click)="sort('customerName')">Customer Name
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'customerName', 
+                        'fa-sort-asc': (column == 'customerName' && !isDesc), 
+                        'fa-sort-desc': (column == 'customerName' && isDesc) }"
+    aria-hidden="true"> </i>
+				    				</th>
+					    			<th (click)="sort('contractorName')">Contractor Name
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'contractorName', 
+                        'fa-sort-asc': (column == 'contractorName' && !isDesc), 
+                        'fa-sort-desc': (column == 'contractorName' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+					    			<th (click)="sort('CCDate')">Contract Complete Date
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'CCDate', 
+                        'fa-sort-asc': (column == 'CCDate' && !isDesc), 
+                        'fa-sort-desc': (column == 'CCDate' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+					    			<th (click)="sort('Voilation')">Voilation
+										<i class="pull-right fa" [ngClass]="{'fa-sort': column != 'Voilation', 
+                        'fa-sort-asc': (column == 'Voilation' && !isDesc), 
+                        'fa-sort-desc': (column == 'Voilation' && isDesc) }"
+    aria-hidden="true"> </i>
+					    			</th>
+					    			
+							</tr>
+				    		</thead>
+				    		<tbody>
+				    			<tr *ngFor="let CContractor of CompletedContracts | filter2: searchText | TableSorting: { property: column, direction: direction}">
+				    				<td>{{ CContractor.customerName }}</td>
+				    				<td>{{ CContractor.contractorName }}</td>
+				    				<td>{{ CContractor.CCDate }}</td>
+				    				<td>{{ CContractor.Voilation }}</td>
+				    			</tr>
+				    		</tbody>
+				    	</table>
+				    </div>
+				  </div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+
